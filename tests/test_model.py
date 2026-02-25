@@ -3,16 +3,11 @@ Unit test per il modello e le funzioni di training
 """
 
 import unittest
-import tempfile
-from pathlib import Path
-
 import torch
 import torch.nn as nn
-import pandas as pd
-import numpy as np
 
 from src.model import FashionMNISTCNN, count_parameters
-from src.train import FashionMNISTCSVDataset, train_epoch, validate
+
 
 
 class TestModel(unittest.TestCase):
@@ -61,6 +56,7 @@ class TestModel(unittest.TestCase):
                 has_grad = True
                 break
         self.assertTrue(has_grad)
+
 
 
 if __name__ == '__main__':
