@@ -10,4 +10,8 @@ test:
 	python -m pytest -vv --cov=src tests/
 	@echo "Testing complete. All tests passed."
 
+docker-build:
+	docker build -t fashion-mnist-project .
+	@echo "Docker build complete."
+
 all: install lint test
