@@ -20,15 +20,18 @@ data/*
 *.pth
 *.h5
 models/*
+!models/.gitkeep
+
+# Reports (salviamo solo i file .png, non i dati grezzi)
+reports/figures/*.png
 
 # IDE
 .vscode/
 .idea/
 
-# Notebooks
-.ipynb_checkpoints/
-*.ipynb
-
 # Logs
 logs/
 *.log
+
+# Docker
+*.pid
