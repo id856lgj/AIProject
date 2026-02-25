@@ -24,6 +24,7 @@ models/*
 
 # Reports (salviamo solo i file .png, non i dati grezzi)
 reports/figures/*.png
+!reports/figures/.gitkeep
 
 # IDE
 .vscode/
