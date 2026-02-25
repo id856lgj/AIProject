@@ -11,6 +11,9 @@ venv/
 dist/
 build/
 .coverage
+.coverage.*
+htmlcov/
+coverage.xml
 
 # Data
 data/*
