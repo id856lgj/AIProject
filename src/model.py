@@ -60,11 +60,11 @@ def count_parameters(model):
 
 ### MAIN - test del modello
 if __name__ == "__main__":
-    model = FashionMNISTCNN()
-    print(f"Modello creato: {model.__class__.__name__}")
-    print(f"Parametri totali: {count_parameters(model):,}")
+    test_model = FashionMNISTCNN()
+    print(f"Modello creato: {test_model.__class__.__name__}")
+    print(f"Parametri totali: {count_parameters(test_model):,}")
     
     test_input = torch.randn(1, 1, 28, 28)
-    output = model(test_input)
+    output = test_model(test_input)
     print(f"Input shape: {test_input.shape}")
     print(f"Output shape: {output.shape}")
