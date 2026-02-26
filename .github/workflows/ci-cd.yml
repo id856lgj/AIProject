@@ -1,0 +1,36 @@
+name: CI/CD Progetto AI
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.13'
+    
+    - name: Install dependencies
+      run: make install
+    
+    - name: Lint
+      run: make lint
+    
+    - name: Test
+      run: make test
+    
+    - name: Build Docker image
+      run: make docker-build
+    
+    - name: Build Python package
+      run: |
+        pip install build
+        python -m build
+    
+    - name: Upload Python package as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: python-package
+        path: dist/
