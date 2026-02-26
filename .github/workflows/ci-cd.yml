@@ -33,8 +33,24 @@ jobs:
     - name: Test
       run: make test
     
-    - name: Build Docker image
-      run: make docker-build
+    # Docker build e push
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ vars.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        push: true
+        tags: |
+          ${{ vars.DOCKER_USERNAME }}/aiproject:latest
+          ${{ vars.DOCKER_USERNAME }}/aiproject:${{ github.sha }}
     
     - name: Build Python package
       run: |
