@@ -10,8 +10,8 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.13'
-    
+        python-version: '3.10'
+
     - name: Download Fashion-MNIST dataset
       run: |
         mkdir -p data
@@ -20,7 +20,7 @@ jobs:
         echo "Scaricamento Fashion-MNIST test set..."
         curl -L -o data/fashion-mnist_test.csv https://github.com/zalandoresearch/fashion-mnist/raw/master/data/fashion/fashion-mnist_test.csv
         ls -la data/
-	
+
     - name: Install dependencies
       run: make install
     
