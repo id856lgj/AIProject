@@ -12,6 +12,15 @@ jobs:
       with:
         python-version: '3.13'
     
+    - name: Download Fashion-MNIST dataset
+      run: |
+        mkdir -p data
+        echo "Scaricamento Fashion-MNIST training set..."
+        curl -L -o data/fashion-mnist_train.csv https://github.com/zalandoresearch/fashion-mnist/raw/master/data/fashion/fashion-mnist_train.csv
+        echo "Scaricamento Fashion-MNIST test set..."
+        curl -L -o data/fashion-mnist_test.csv https://github.com/zalandoresearch/fashion-mnist/raw/master/data/fashion/fashion-mnist_test.csv
+        ls -la data/
+	
     - name: Install dependencies
       run: make install
     
