@@ -16,10 +16,13 @@ jobs:
       run: |
         mkdir -p data
         echo "Scaricamento Fashion-MNIST training set..."
-        curl -L -o data/fashion-mnist_train.csv https://github.com/zalandoresearch/fashion-mnist/raw/master/data/fashion/fashion-mnist_train.csv
+        curl -L -o data/fashion-mnist_train.csv https://github.com/id856lgj/AIProject/releases/download/v1.0/fashion-mnist_train.csv
         echo "Scaricamento Fashion-MNIST test set..."
-        curl -L -o data/fashion-mnist_test.csv https://github.com/zalandoresearch/fashion-mnist/raw/master/data/fashion/fashion-mnist_test.csv
+        curl -L -o data/fashion-mnist_test.csv https://github.com/id856lgj/AIProject/releases/download/v1.0/fashion-mnist_test.csv
+        echo "Verifica file scaricati:"
         ls -la data/
+        echo "Prime righe del file:"
+        head -n 3 data/fashion-mnist_train.csv
 
     - name: Install dependencies
       run: make install
